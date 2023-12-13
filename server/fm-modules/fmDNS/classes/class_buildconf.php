@@ -1087,11 +1087,11 @@ class fm_module_buildconf extends fm_shared_module_buildconf {
 							/** Are there multiple zones with the same name? */
 							if (isset($zone_result->parent_domain_id)) {
 								basicGet('fm_' . $__FM_CONFIG['fmDNS']['prefix'] . 'domains', $zone_result->domain_name, 'domain_', 'domain_name', 'AND domain_id!=' . $zone_result->parent_domain_id);
-								if ($fmdb->num_rows) $file_ext = '.' . $zone_result[$i]->parent_domain_id;
+								if ($fmdb->num_rows) $file_ext = '.' . $zone_result->parent_domain_id;
 							} else {
 								$zone_result->parent_domain_id = $zone_result->domain_id;
 								basicGet('fm_' . $__FM_CONFIG['fmDNS']['prefix'] . 'domains', $zone_result->domain_name, 'domain_', 'domain_name', 'AND domain_id!=' . $zone_result->domain_id);
-								if ($fmdb->num_rows) $file_ext = '.' . $zone_result[$i]->domain_id;
+								if ($fmdb->num_rows) $file_ext = '.' . $zone_result->domain_id;
 							}
 							
 							if ($domain_type == 'slave' && $file_ext == $default_file_ext) {
